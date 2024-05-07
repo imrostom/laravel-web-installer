@@ -1,10 +1,11 @@
-# Very short description of the package
+# Laravel Web Installer
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/imrostom/laravel-web-installer.svg?style=flat-square)](https://packagist.org/packages/imrostom/laravel-web-installer)
-[![Total Downloads](https://img.shields.io/packagist/dt/imrostom/laravel-web-installer.svg?style=flat-square)](https://packagist.org/packages/imrostom/laravel-web-installer)
-![GitHub Actions](https://github.com/imrostom/laravel-web-installer/actions/workflows/main.yml/badge.svg)
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+Laravel Web Installer is a Laravel package that allows you to install your application easily, without having to worry about setting up your environment before starting with the installation process.
 
 ## Installation
 
@@ -15,9 +16,24 @@ composer require imrostom/laravel-web-installer
 ```
 
 ## Usage
+To publish web installer package assets [This must be required]
+```bash
+php artisan vendor:publish --provider="Imrostom\LaravelWebInstaller\LaravelWebInstallerServiceProvider" --tag="assets"
+```
 
-```php
-// Usage description here
+To publish web installer package config 
+```bash
+php artisan vendor:publish --provider="Imrostom\LaravelWebInstaller\LaravelWebInstallerServiceProvider" --tag="config"
+```
+
+To publish web installer package views
+```bash
+php artisan vendor:publish --provider="Imrostom\LaravelWebInstaller\LaravelWebInstallerServiceProvider" --tag="views"
+```
+
+To publish web installer package lang
+```bash
+php artisan vendor:publish --provider="Imrostom\LaravelWebInstaller\LaravelWebInstallerServiceProvider" --tag="lang"
 ```
 
 ### Testing
