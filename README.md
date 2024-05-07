@@ -1,9 +1,8 @@
 # Laravel Web Installer
 
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="https://packagist.org/packages/imrostom/laravel-web-installer"><img src="https://img.shields.io/packagist/dt/imrostom/laravel-web-installer" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/imrostom/laravel-web-installer"><img src="https://img.shields.io/packagist/v/imrostom/laravel-web-installer" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/imrostom/laravel-web-installer"><img src="https://img.shields.io/packagist/l/imrostom/laravel-web-installer" alt="License"></a>
 
 Laravel Web Installer is a Laravel package that allows you to install your application easily, without having to worry about setting up your environment before starting with the installation process.
 
