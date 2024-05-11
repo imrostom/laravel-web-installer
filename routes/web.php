@@ -9,7 +9,7 @@ use Imrostom\LaravelWebInstaller\Http\Controllers\RequirementController;
 use Imrostom\LaravelWebInstaller\Http\Controllers\VerifyController;
 use Imrostom\LaravelWebInstaller\Http\Controllers\WelcomeController;
 
-Route::group(['prefix' => 'install', 'as' => 'LaravelWebInstaller::', 'middleware' => ['web']], function () {
+Route::group(['prefix' => 'install', 'as' => 'LaravelWebInstaller::', 'middleware' => ['web', 'installed']], function () {
 
     Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
