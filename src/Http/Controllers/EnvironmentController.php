@@ -49,11 +49,8 @@ class EnvironmentController extends Controller
     public function save(Request $request, Redirector $redirect)
     {
         $rules = config('laravel-web-installer.environment.form.rules');
-        $messages = [
-            'environment_custom.required_if' => trans('LaravelWebInstaller::installer_messages.environment.wizard.form.name_required'),
-        ];
 
-        $validator = Validator::make($request->all(), $rules, $messages);
+        $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
             return $redirect->route('LaravelWebInstaller::environment')->withInput()->withErrors($validator->errors());

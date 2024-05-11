@@ -2,6 +2,9 @@
 
 namespace Imrostom\LaravelWebInstaller\Library;
 
+use Exception;
+use Illuminate\Support\Facades\Http;
+
 class RequirementChecker
 {
     /**
@@ -22,6 +25,20 @@ class RequirementChecker
 
         foreach ($systemRequirements as $type => $requirements) {
             switch ($type) {
+
+                // check php requirements
+                case 'internet':
+                    foreach ($requirements as $requirement) {
+                        $results['requirements'][$type][$requirement] = true;
+
+                        if (!$this->internetConnection()) {
+                            $results['requirements'][$type][$requirement] = false;
+
+                            $results['errors'] = true;
+                        }
+                    }
+                    break;
+
                 // check php requirements
                 case 'php':
                     foreach ($requirements as $requirement) {
@@ -34,6 +51,7 @@ class RequirementChecker
                         }
                     }
                     break;
+
                 // check apache requirements
                 case 'apache':
                     foreach ($requirements as $requirement) {
@@ -108,5 +126,16 @@ class RequirementChecker
     protected function getMinPhpVersion(): string
     {
         return $this->_minPhpVersion;
+    }
+
+    private function internetConnection(): bool
+    {
+        try {
+            $response = Http::get('http://www.google.com', ['timeout' => 5]);
+
+            return $response->status() === 200;
+        } catch (Exception $e) {
+            return false;
+        }
     }
 }

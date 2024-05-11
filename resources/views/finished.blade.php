@@ -11,19 +11,18 @@
 
 @section('container')
 
-	@if(session('message')['dbOutputLog'])
-		<p><strong><small>{{ trans('LaravelWebInstaller::installer_messages.final.migration') }}</small></strong></p>
-		<pre><code>{{ session('message')['dbOutputLog'] }}</code></pre>
-	@endif
-
 	<p><strong><small>{{ trans('LaravelWebInstaller::installer_messages.final.console') }}</small></strong></p>
-	<pre><code>{{ $finalMessages }}</code></pre>
+	<p style="background: #000; padding: 5px 8px; color: #fff; border-radius: 5px; font-weight: 500">{{ $finalMessages }}</p>
 
 	<p><strong><small>{{ trans('LaravelWebInstaller::installer_messages.final.log') }}</small></strong></p>
-	<pre><code>{{ $finalStatusMessage }}</code></pre>
+	<p style="background: #000; padding: 5px 8px; color: #fff; border-radius: 5px; font-weight: 500">{{ $finalStatusMessage }}</p>
 
-	<p><strong><small>{{ trans('LaravelWebInstaller::installer_messages.final.env') }}</small></strong></p>
-	<pre><code>{{ $finalEnvFile }}</code></pre>
+    <p><strong>{{ __('System Admin Login information') }}</strong></p>
+    <hr>
+    <p><strong>{{ __('Email : admin@example.com') }}</strong></p>
+    <p><strong>{{ __('Password : 123456') }}</strong></p>
+    <p><strong>{{ __('You can change your information after login admin panel.') }}</strong></p>
+
 
     <div class="buttons">
         <a href="{{ url('/') }}" class="button">{{ trans('LaravelWebInstaller::installer_messages.final.exit') }}</a>

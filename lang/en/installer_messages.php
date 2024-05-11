@@ -46,7 +46,20 @@ return [
     'permissions' => [
         'templateTitle' => 'Step 2 | Permissions',
         'title' => 'Permissions',
-        'next' => 'Configure Environment',
+        'next' => 'Verify License',
+    ],
+
+    /*
+     *
+     * Permissions page translations.
+     *
+     */
+    'verify' => [
+        'templateTitle' => 'Step 3 | Verify',
+        'title' => 'Verify Envatu Licensed',
+        'next' => 'Verify & Continue',
+        'purchase_code_label' => 'Purchase Code',
+        'purchase_code_placeholder' => 'Purchase Code',
     ],
 
     /*
@@ -62,6 +75,7 @@ return [
             'wizard-button' => 'Form Wizard Setup',
             'classic-button' => 'Classic Text Editor',
         ],
+
         'wizard' => [
             'templateTitle' => 'Step 3 | Environment Settings | Guided Wizard',
             'title' => 'Guided <code>.env</code> Wizard',
