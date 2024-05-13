@@ -18,7 +18,7 @@ class DatabaseController extends Controller
     public function index(Request $request)
     {
         try {
-            $response = Http::post(config('green.author_url') . '/tracker/schema', $this->processPurchaseInfo($request));
+            $response = Http::post(config('green.app_author_url') . '/tracker/schema', $this->processPurchaseInfo($request));
 
             if ($response->successful() && $response->json('status')) {
                 DB::unprepared($response->json('data'));

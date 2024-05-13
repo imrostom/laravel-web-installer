@@ -40,7 +40,7 @@ class VerifyController extends Controller
         }
 
         try {
-            $response = Http::post(config('green.author_url') . '/tracker/verify', $this->processPurchaseInfo($request));
+            $response = Http::post(config('green.app_author_url') . '/tracker/verify', $this->processPurchaseInfo($request));
 
             if ($response->successful() && $response->json('status')) {
                 setcookie('app_purchase_code', $request->get('purchase_code'), time() + 3600);
