@@ -46,26 +46,6 @@ class EnvironmentManager
     }
 
     /**
-     * Get the .env file path.
-     *
-     * @return string
-     */
-    public function getEnvPath(): string
-    {
-        return $this->envPath;
-    }
-
-    /**
-     * Get the .env.example file path.
-     *
-     * @return string
-     */
-    public function getEnvExamplePath(): string
-    {
-        return $this->envExamplePath;
-    }
-
-    /**
      * Save the form content to the .env file.
      *
      * @param Request $request
@@ -91,6 +71,7 @@ class EnvironmentManager
         $envFileContent = "APP_NAME='" . $request->get('app_name') . "'\n";
         $envFileContent .= "APP_ENV=" . $request->get('environment') . "\n";
         $envFileContent .= "APP_KEY=" . 'base64:' . base64_encode(Str::random(32)) . "\n";
+        $envFileContent .= "APP_PURCHASE_CODE='" . $_COOKIE['app_purchase_code'] . "'\n";
         $envFileContent .= "APP_DEBUG=" . $request->get('app_debug') . "\n";
         $envFileContent .= "APP_URL=" . $request->get('app_url') . "\n\n";
 

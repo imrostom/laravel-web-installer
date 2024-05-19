@@ -18,7 +18,6 @@ class FinalInstallManager
         $outputLog = new BufferedOutput;
 
         $this->generateKey($outputLog);
-        $this->publishVendorAssets($outputLog);
 
         return $outputLog->fetch();
     }
@@ -32,28 +31,7 @@ class FinalInstallManager
     private static function generateKey(BufferedOutput $outputLog): void
     {
         try {
-            if (config('laravel-web-installer.final.key')) {
-                Artisan::call('key:generate', ['--force'=> true], $outputLog);
-            }
-        } catch (Exception $e) {
-            static::response($e->getMessage(), $outputLog);
-            return;
-        }
-
-    }
-
-    /**
-     * Publish vendor assets.
-     *
-     * @param BufferedOutput $outputLog
-     * @return void
-     */
-    private static function publishVendorAssets(BufferedOutput $outputLog): void
-    {
-        try {
-            if (config('laravel-web-installer.final.publish')) {
-                Artisan::call('vendor:publish', ['--all' => true], $outputLog);
-            }
+            Artisan::call('key:generate', ['--force' => true], $outputLog);
         } catch (Exception $e) {
             static::response($e->getMessage(), $outputLog);
             return;

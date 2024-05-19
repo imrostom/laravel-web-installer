@@ -26,7 +26,7 @@
                     </li>
                     <li class="step__divider"></li>
                     <li class="step__item {{ isActive('LaravelWebInstaller::environment')}} {{ isActive('LaravelWebInstaller::environmentWizard')}} {{ isActive('LaravelWebInstaller::environmentClassic')}}">
-                        @if(Request::is('install/environment') || Request::is('install/environment/wizard') || Request::is('install/environment/classic') )
+                        @if(Request::is('install/environment') || Request::is('install/environment') )
                             <a href="{{ route('LaravelWebInstaller::environment') }}">
                                 <i class="step__icon fa fa-cog" aria-hidden="true"></i>
                             </a>
@@ -35,8 +35,18 @@
                         @endif
                     </li>
                     <li class="step__divider"></li>
+                    <li class="step__item {{ isActive('LaravelWebInstaller::verify') }}">
+                        @if(Request::is('install/verify') || Request::is('install/environment') )
+                            <a href="{{ route('LaravelWebInstaller::verify') }}">
+                                <i class="step__icon fa fa-check-circle"></i>
+                            </a>
+                        @else
+                            <i class="step__icon fa fa-check-circle"></i>
+                        @endif
+                    </li>
+                    <li class="step__divider"></li>
                     <li class="step__item {{ isActive('LaravelWebInstaller::permissions') }}">
-                        @if(Request::is('install/permissions') || Request::is('install/environment') || Request::is('install/environment/wizard') || Request::is('install/environment/classic') )
+                        @if(Request::is('install/permissions') || Request::is('install/verify') || Request::is('install/environment') )
                             <a href="{{ route('LaravelWebInstaller::permissions') }}">
                                 <i class="step__icon fa fa-key" aria-hidden="true"></i>
                             </a>
@@ -46,7 +56,7 @@
                     </li>
                     <li class="step__divider"></li>
                     <li class="step__item {{ isActive('LaravelWebInstaller::requirement') }}">
-                        @if(Request::is('install') || Request::is('install/requirement') || Request::is('install/permissions') || Request::is('install/environment') || Request::is('install/environment/wizard') || Request::is('install/environment/classic') )
+                        @if(Request::is('install/requirement') || Request::is('install/permissions') || Request::is('install/verify') || Request::is('install/environment') )
                             <a href="{{ route('LaravelWebInstaller::requirement') }}">
                                 <i class="step__icon fa fa-list" aria-hidden="true"></i>
                             </a>
@@ -56,7 +66,7 @@
                     </li>
                     <li class="step__divider"></li>
                     <li class="step__item {{ isActive('LaravelWebInstaller::welcome') }}">
-                        @if(Request::is('install') || Request::is('install/requirement') || Request::is('install/permissions') || Request::is('install/environment') || Request::is('install/environment/wizard') || Request::is('install/environment/classic') )
+                        @if(Request::is('install') || Request::is('install/requirement') || Request::is('install/permissions') || Request::is('install/verify') || Request::is('install/environment') )
                             <a href="{{ route('LaravelWebInstaller::welcome') }}">
                                 <i class="step__icon fa fa-home" aria-hidden="true"></i>
                             </a>
@@ -83,10 +93,10 @@
                             <button type="button" class="close" id="close_alert" data-dismiss="alert" aria-hidden="true">
                                  <i class="fa fa-close" aria-hidden="true"></i>
                             </button>
-                            <h4>
+                            <p>
                                 <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
                                 {{ trans('LaravelWebInstaller::installer_messages.forms.errorTitle') }}
-                            </h4>
+                            </p>
                             <ul>
                                 @foreach($errors->all() as $error)
                                     <li>{{ $error }}</li>

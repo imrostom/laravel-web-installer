@@ -19,20 +19,11 @@ class InstalledFileManager
 
             file_put_contents($installedLogFile, $message);
         } else {
-            $message = trans('LaravelWebInstaller::installer_messages.updater.log.success_message').$dateStamp;
+            $message = trans('LaravelWebInstaller::installer_messages.installed.success_log_message').$dateStamp;
 
             file_put_contents($installedLogFile, $message.PHP_EOL, FILE_APPEND | LOCK_EX);
         }
 
         return $message;
-    }
-
-    /**
-     * Update installed file.
-     *
-     */
-    public function update()
-    {
-        return $this->create();
     }
 }

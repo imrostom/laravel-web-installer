@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Server Requirements
@@ -12,14 +11,15 @@ return [
     | through the array and run "extension_loaded" on it.
     |
     */
+
     'core' => [
         'minPhpVersion' => '8.0.0',
     ],
-    'final' => [
-        'key' => true,
-        'publish' => false,
-    ],
+
     'requirements' => [
+        'internet' => [
+            'Internet Connection'
+        ],
         'php' => [
             'openssl',
             'pdo',
@@ -43,9 +43,9 @@ return [
     |
     */
     'permissions' => [
-        'storage/framework/'     => '775',
-        'storage/logs/'          => '775',
-        'bootstrap/cache/'       => '775',
+        'storage/framework/' => '775',
+        'storage/logs/' => '775',
+        'bootstrap/cache/' => '775',
     ],
 
     /*
@@ -60,18 +60,17 @@ return [
     'environment' => [
         'form' => [
             'rules' => [
-                'app_name'              => 'required|string|max:50',
-                'environment'           => 'required|string|max:50',
-                'environment_custom'    => 'required_if:environment,other|max:50',
-                'app_debug'             => 'required|string',
-                'app_url'               => 'required|url',
-                'app_log_level'         => 'required|string|max:50',
-                'database_connection'   => 'required|string|max:50',
-                'database_hostname'     => 'required|string|max:50',
-                'database_port'         => 'required|numeric',
-                'database_name'         => 'required|string|max:50',
-                'database_username'     => 'required|string|max:50',
-                'database_password'     => 'nullable|string|max:50',
+                'app_name' => 'required|string|max:50',
+                'environment' => 'required|string|max:50',
+                'app_debug' => 'required|string',
+                'app_url' => 'required|url',
+                'app_log_level' => 'required|string|max:50',
+                'database_connection' => 'required|string|max:50',
+                'database_hostname' => 'required|string|max:50',
+                'database_port' => 'required|numeric',
+                'database_name' => 'required|string|max:50',
+                'database_username' => 'required|string|max:50',
+                'database_password' => 'nullable|string|max:50',
             ],
         ],
     ]
